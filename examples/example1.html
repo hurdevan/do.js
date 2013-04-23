@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		Untitled Document
+	</title>
+<script type="text/javascript" language="javascript" src="https://raw.github.com/hurdevan/do.js/master/DO.js"></script>
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+
+var win = {};
+with(DO.dom)
+	{
+	win.root = div({parentElement:document.body,style:'border:1px solid black;width:200px;height:200px;position:fixed;'},
+		win.bar = div({style:'height:20px;text-align:center;background-color:#333333;color:white;cursor:pointer;',
+			onmousedown:DO.Func(true,function(eve,winobj)
+				{
+				window.onmousemove = winobj.bar.onmousemove;
+				window.onmouseup = winobj.bar.onmouseup;
+				winobj.offsetX = winobj.root.offsetLeft - eve.x;
+				winobj.offsetY = winobj.root.offsetTop - eve.y;
+				winobj.activeDrag = true;
+				},win),
+			onmouseup:DO.Func(true,function(eve,winobj)
+				{
+				window.onmousemove = false;
+				window.onmouseup = false;
+				winobj.activeDrag = false;
+				},win),
+			onmousemove:DO.Func(true,function(eve,winobj)
+				{
+				if(!winobj.activeDrag)return false;
+				window.test = eve;
+				winobj.root.style.position="fixed";
+				winobj.root.style.left = (eve.x + winobj.offsetX)+"px";
+				winobj.root.style.top = (eve.y + winobj.offsetY)+"px";
+				},win)
+			},'Move Window'),
+		
+		
+		win.body = div(
+			div(b('First Name:'),
+				win.firstName = input({type:'text'})
+				),
+			div(b('Last Name:'),
+				win.lastName = input({type:'text'})
+				),
+			div(b('Email:'),
+				win.email = input({type:'text'})
+				),
+			input({type:'submit',onclick:DO.Func(function(winobj)
+				{
+				alert("First Name:"+winobj.firstName.value +"\n"+"Last Name:"+winobj.lastName.value +"\n"+"Email:"+winobj.email.value +"\n");
+				},win)}),
+			"This window was created with DO.dom"
+			)
+		);
+		
+		
+	}
+
+</script>
+
+</body>
+</html>

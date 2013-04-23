@@ -26,7 +26,8 @@ In the example above, the structure resembles(to an extent) HTML markup. A funct
 * Strings - Strings are inserted as a text node in the order received
 * Nodes - Appended as children in the order received
 * Functions - Called in context of the node when it is created
-* DO.dom uses the natural javascript syntax to perform it's job. As such, DO.dom only needs to loop through all of the arguments supplied to each of the functions. However, because it uses the javascript syntax then the deepest node will be created first. The root node will be the last to be created of the entire structure. 
+
+DO.dom uses the natural javascript syntax to perform it's job. As such, DO.dom only needs to loop through all of the arguments supplied to each of the functions. However, because it uses the javascript syntax then the deepest node will be created first. The root node will be the last to be created of the entire structure. 
 
 The syntax is as follows:
 ````
