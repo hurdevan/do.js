@@ -20,13 +20,13 @@ with(DO.dom)
    }
 ```` 
 
-In the example above, the structure resembles(to an extent) HTML text. The workings are extremely simple. A function for each HTML tag resides in the DO.dom object. When one of these functions is called it creates the DOM node it represents and loops through all the arguments that were supplied to it. There are 4 types of arguments that can be supplied to these functions.
+In the example above, the structure resembles(to an extent) HTML markup. A function for each HTML tag resides in the DO.dom object. When one of these functions is called it creates the DOM node it represents and loops through all the arguments that were supplied to it. There are 4 types of arguments that can be supplied to these functions.
 
-Objects - Used to apply attributes, events and perform actions on the node
-Strings - Strings are inserted as a text node in the order received
-Nodes - Appended as children in the order received
-Functions - Called in context of the node when it is created
-DO.dom uses the natural javascript syntax to perform it's job. As such, DO.dom only needs to loop through all of the arguments supplied to each of the functions. However, because it uses the javascript syntax then the deepest node will be created first. The root node will be the last to be created of the entire structure. 
+* Objects - Used to apply attributes, events and perform actions on the node
+* Strings - Strings are inserted as a text node in the order received
+* Nodes - Appended as children in the order received
+* Functions - Called in context of the node when it is created
+* DO.dom uses the natural javascript syntax to perform it's job. As such, DO.dom only needs to loop through all of the arguments supplied to each of the functions. However, because it uses the javascript syntax then the deepest node will be created first. The root node will be the last to be created of the entire structure. 
 
 The syntax is as follows:
 ````
