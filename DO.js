@@ -1,5 +1,26 @@
-// JavaScript Document
-
+/*
+ * The MIT License
+ *
+ * Copyright (c) 2012 - 2013 Evan Hurd
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 
 window.DO = 
 	{
@@ -95,15 +116,12 @@ window.DO =
 		"u":function(){return this.__createNode("u",arguments);},
 		"ul":function(){return this.__createNode("ul",arguments);},
 		
-		"id":"id",
-		"name":"name",
+		"nid":"nid",
 		"classname":"className",
 		"cls":"className",
-		"onclick":"onclick",
-		"onchange":"onchange",
-		"innerHTML":"html",
-		"value":"html",
-		"type":"type",
+		
+		
+		
 		
 		"__createNode":function(tag,input)
 			{
@@ -120,7 +138,7 @@ window.DO =
 					node.appendChild(document.createTextNode(inp));
 					}else if(inp && inp.nodeType){
 					node.appendChild(inp);
-					if(inp.id != "")node[inp.id] = inp;
+					if(inp.nid != "")node[inp.nid] = inp; // Make parent's child aware
 					if(inp.name != "")
 						{
 						if(!node.childrenByName[inp.name])node.childrenByName[inp.name] = [];
