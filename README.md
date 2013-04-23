@@ -35,13 +35,13 @@ The syntax is as follows:
 ````
 The return is always a node. To customize the node, variables must supplied in an object. Any variable given in an object will be inserted into the object. However, there are a few varibles that have special meaning.
 
-## appendChild - Element id or node required
+## parentElement - Element id or node required
 
 ​This will tell DO.dom to append the element into the node provided. Ethere an element id or a node can be given. 
 
 ````
-div({appendChild:'itemList'});
-div({appendChild:document.body});
+div({parentElement:'itemList'});
+div({parentElement:document.body});
 ````
 
 ## insertBefore - Element id or node required
